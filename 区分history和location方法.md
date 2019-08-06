@@ -10,10 +10,10 @@
 - 使用react-router-redux改变路由(待总结)
 push方法（react-router-redux）
 
-- 使用<a />标签
+- 使用a标签
   - 特点：页面上所有的组件都会重新的挂载。
 
-- 使用window对象的属性：history和location
+- 使用window对象的属性：history和location(待总结)
 
   - history.push
     - 特点：history记录了从窗口打开开始的所有浏览历史
