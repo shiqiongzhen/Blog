@@ -17,6 +17,6 @@ push方法（react-router-redux）
 
   - history.push
     - 特点：history记录了从窗口打开开始的所有浏览历史
-    - history其他方法：go,..
+    - history其他方法：go, back, pushState(), replaceState()..
   - location.href
     - location其他方法：hash,..
