@@ -2,7 +2,10 @@
     - git pull: 拉取+合并同一分支代码
     - git merge BRANCHNAME: 合并不同分支代码
     - git checkout BRANCHNAME: 切换分支
-        - -t 生成新分支并切换到次新分支
+        - -b 生成新分支并切换到新分支（代码会随着切换带进新分支）
+    - git branch BRANCHNAME: 新建分支
+        - -a 查看所有分支
+        - -d 删除分支
     - git add: 添加代码到本地暂存区
     - git commit: 添加代码到本地仓库
     - git push： 推送代码到远程仓库
