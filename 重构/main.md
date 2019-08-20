@@ -69,6 +69,43 @@
             - 有局部变量
             - 对局部变量赋值
             ```
+            class ExtractMethod1 {
+                _name = 'ExtractMethod'
+
+                printOwing() {
+                    const arr = [1,2,3]
+                    let sum = 0
+                
+                    arr.forEach(item => {
+                    sum += item
+                    })
+                    
+                    //print details
+                    console.log(`name: ${this._name}`)
+                    console.log(`amount: ${sum}`)
+                }
+            }
+            // 变化后
+            class ExtractMethod3 {
+                _name = 'ExtractMethod'
+                printOwing() {
+                    const sum = this.getOutStanding()
+                    this.printBanner()
+                    this.printDetails(sum)
+                }
+                getOutStanding() {
+                    const arr = [1,2,3]
+                    let sum = 0
+                    arr.forEach(item => {
+                    sum += item
+                    })
+                    return sum
+                }
+                printDetails(sum) {
+                    console.log(`name: ${this._name}`)
+                    console.log(`amount: ${sum}`)
+                }
+            }
 
             ```
 
@@ -114,8 +151,8 @@
         3. 用新变量取代原表达式
         4. 测试
         - 范例： 
-            - 函数题变量
-            - 类提方法（若为功用的行为）
+            - 函数提变量
+            - 类提方法（若为公用的行为）
     - 内联变量
         - 动机：去除不必要变量
         - 场景：表达式比变量更有表现力
@@ -213,9 +250,8 @@
             const area = height * width;
             ```
         - 做法：
-        1. 
-        - 范例： 
-            - 
+         1. 
+        - 范例：
     - 引入参数对象
         - 动机：组织数据结构，让数据项之间的关系更清晰，参数列表也能缩短
         - 场景：一个函数接受多个参数
@@ -229,7 +265,6 @@
         - 做法：
         1. 
         - 范例： 
-            - 
     - 函数组合成类
         - 动机：
         1. 对象内部调用这些函数可以少传参数，从而简化函数调用，而且一个对象可更方便传递给系统的其他部分
@@ -249,7 +284,6 @@
         - 做法：
         1. 
         - 范例： 
-            - 
     - 拆分阶段
         - 动机：保证单一原则，一段代码只做一件事
         - 场景：如果一段代码同时处理两件或者更多不同的事情
@@ -276,4 +310,3 @@
         - 做法：
         1. 
         - 范例： 
-            - 
