@@ -1,6 +1,10 @@
 - 原则思路抽取出十六个字，即所谓的：重构十六字心法（举例迁移式）
     - 小步修改，测试
     - 不能因为重构代码而引入bug
+- 强调
+    - 是否是可变数据
+    - 是否有引入其他逻辑
+    
 - 时机：
     - 边开车边换轮胎。重构应该是随时发生的。每一次功能改进都需要进行一点重构
 - 作用
@@ -37,23 +41,14 @@
             - 标志：注释=>提炼函数
             ```
             function printOwing(invoice){
-                printBanner();
-                const outstanding = calculateOutstanding();
-                
-                //print details
-                console.info('name:', invoice.name);
-                console.info('amount:', outstanding);
+                //print banner
+                console.log(`--------------`)
+                console.log(`Customer Owes`)
+                console.log(`--------------`)
             }
             // 变化
             function printOwing(invoice){
                 printBanner();
-                const outstanding = calculateOutstanding();
-                printDetails(outstanding, invoice);
-                
-                function printDetails(){
-                    console.info('name:', invoice.name);
-                    console.info('amount:', outstanding);
-                }
             }
             ```
         - 做法：
@@ -190,14 +185,16 @@
         - 范例： 
             - 修改函数名
             ```
-            function circum(radius){
-                return circumferrence(radius)
-            } // 圆
+            function circum(radius){ // 圆
+                return 2*Math.PI*radius;
+            } 
+            //变化
+            function circum(radius){ 
+                return circumferrence(radius)// 圆周长
+            } 
             function circumferrence(radius){
                 return 2*Math.PI*radius;
             }
-            //变化
-            function circumference(){} // 圆周长
             ```
             - 添加函数参数（设置了上下文，看出函数处理范围：人，公司）
                 - 如何选择正确的参数
