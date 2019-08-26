@@ -2,11 +2,16 @@
 - 我的理解
     - redux： 相当于封装变量，监控变量，增加行为
     - redux作用：不用刷新页面，就能实时监听每个页面数据state变化，且每个页面的数据相互独立
+    ![redux](./img/redux.png)
 - Store 
     - 保存数据的地方，你可以把它看成一个容器。整个应用只能有一个 Store
     - Store & State区别： 一个 State 对应一个 View，而整个应用只能有一个 Store
+    - 方法
+        - store.getState()
+        - store.dispatch()
+        - store.subscribe()
 - state
-    - 一个 State 对应一个 View
+    - 一个 State 对应一个 View, 保证每个View之间数据独立，不干扰
 - action：对象，触发state变化的条件
     - Action Creator：**创建一个action对象**，下面的例子中addTodo相当于一个creator
     ```
