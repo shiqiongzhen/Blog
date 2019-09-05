@@ -27,3 +27,15 @@
         var b=[...a]
         ```
 
+- 对象属性访问
+    - 注意区分点访问和[]访问
+    ```
+    var a={head:1}
+    a.head  //1
+    a["head"]  //1
+    a[head]  //报错
+
+    var headObject="head"
+    a[headObject] // 1
+    a.headObject  // 报错
+    ```
