@@ -39,3 +39,4 @@
     a[headObject] // 1
     a.headObject  // 报错
     ```
+- concat踩坑
