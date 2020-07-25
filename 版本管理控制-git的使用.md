@@ -1,14 +1,22 @@
 - 常用命令
-    - git pull: 拉取+合并同一分支代码
-    - git merge BRANCHNAME: 合并不同分支代码
+    - git pull
+        - git pull: 拉取+合并同一分支代码
+        - git pull origin BRANCHNAME：拉取+合并不同分支代码
+    - git merge origin/BRANCHNAME: 合并不同分支代码
     - git checkout BRANCHNAME: 切换分支
         - -b 生成新分支并切换到新分支（代码会随着切换带进新分支）
     - git branch BRANCHNAME: 新建分支
         - -a 查看所有分支
         - -d 删除分支
+    - git init: 新建本地仓库
     - git add: 添加代码到本地暂存区
     - git commit: 添加代码到本地仓库
     - git push： 推送代码到远程仓库
+    - git log：查看提交日志
+    - git remote -v：显示所有远程仓库
+- 回退命令
+    - git reset --hard commitId：不可逆回退到某一commit版本
+        - 注意：回退前一定要把进行到一半的代码备份，如切到另一个新分支并保存
 
 - 注意区分概念
     1. 本地分支与远程分支，head游标指向

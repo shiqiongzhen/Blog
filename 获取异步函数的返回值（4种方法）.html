@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+<script>
+    //1---利用回调（最原始的方法，promise没出来前）
+    function b(a){
+        axios.get('http://portal-portm.sankuai.com/metrics/demo/container/data')
+        .then(res => {
+            a(res)
+        }) 
+    }
+    function a(res){
+        console.log("v0",res)
+        // 做你想做的事
+    }
+    b(a)
+
+    // 2----利用es6的promise
+    new Promise((resolve, reject)=>{
+        axios.get('http://portal-portm.sankuai.com/metrics/demo/container/data')
+        .then(res => {
+            resolve(res)
+        }) 
+    }).then(res =>{
+        console.log("v1",res)
+        // 做你想做的事
+    })
+
+    // 2.1 扩展：建议你把这个请求封装成一个方法，然后需要取值的时候就调回调
+    function request(url){
+        return new Promise((resolve, reject)=>{
+            axios.get(url)
+            .then(res => {
+                resolve(res)
+            }) 
+        })
+    }
+    request('http://portal-portm.sankuai.com/metrics/demo/container/data').then(res =>{
+        console.log("v2",res)
+        // 做你想做的事
+    })
+
+    // 3----利用es7的asyn/await  
+    async function request(url){  // 为啥会导致2.1请求不了？？
+        const v3 = await new Promise((resolve, reject)=>{
+            axios.get(url)
+            .then(res => {
+                resolve(res)
+            }) 
+        })
+        console.log("v3", v3)
+        // 做你想做的事
+    }
+</script>
+</html>
