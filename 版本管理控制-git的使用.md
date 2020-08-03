@@ -8,11 +8,12 @@
     - git branch：查看最近的分支
         - BRANCHNAME: 新建分支
         - -a 查看所有分支
-        - -d 删除分支
+        - -d 删除本地分支
     - git init: 新建本地仓库
     - git add: 添加代码到本地暂存区
     - git commit: 添加代码到本地仓库
     - git push： 推送代码到远程仓库
+        - origin --delete BRANCHNAME 删除远程分支
     - git log：查看提交日志
     - git remote -v：显示已建立连接的所有远程仓库
 - 回退命令
