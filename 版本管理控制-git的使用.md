@@ -16,6 +16,11 @@
         - origin --delete BRANCHNAME 删除远程分支
     - git log：查看提交日志
     - git remote -v：显示已建立连接的所有远程仓库
+    - git stash
+        - save "message..."：保存当前的工作进度。会分别对暂存区和工作区的状态进行保存
+        - list：显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择
+        - pop [--index] [<stash>]：如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。
+        - clear：删除所有存储的进度
 - 回退命令
     - git reset 
         - --soft commitId：可逆回退到某一commit版本（变动代码存在本地暂存区）
